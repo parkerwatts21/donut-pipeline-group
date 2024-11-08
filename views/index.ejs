@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doughnut Shop</title>
+</head>
+<body style="background-color: #f3f4f6; min-height: 100vh; padding-top: 80px; margin: 0; font-family: Arial, sans-serif;">
+
+  <!-- Navbar Section -->
+  <nav style="background-color: white; border-bottom: 1px solid #ddd; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; z-index: 50;">
+    <div style="display: flex; align-items: center;">
+      <img src="/images/KrispieKreme.png" alt="Logo" style="width: 100px; height: 55px; border-radius: 50%;">
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main style="max-width: 1200px; margin: auto; padding: 32px; text-align: center;">
+    <h2 style="font-size: 2em; color: #2d6a4f; margin: 20px 0;">Doughnuts</h2>
+    <p style="color: #737373; font-weight: bold; margin-bottom: 40px;">
+      Daily Selection Varies by Shop!
+    </p>
+
+    <!-- Filtering options -->
+    <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 24px;">
+      <button style="font-size: 0.9em; font-weight: bold; padding-bottom: 6px; border-bottom: 2px solid #2d6a4f; color: #2d6a4f;">ALL</button>
+      <button style="font-size: 0.9em; font-weight: bold; padding-bottom: 6px; color: #737373;">ICED</button>
+      <button style="font-size: 0.9em; font-weight: bold; padding-bottom: 6px; color: #737373;">GLAZED</button>
+      <button style="font-size: 0.9em; font-weight: bold; padding-bottom: 6px; color: #737373;">FILLED</button>
+      <button style="font-size: 0.9em; font-weight: bold; padding-bottom: 6px; color: #737373;">CAKE</button>
+      <button style="font-size: 0.9em; font-weight: bold; padding-bottom: 6px; color: #737373;">CHOCOLATE</button>
+    </div>
+
+    <!-- Grid for Doughnuts -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; width: 100%;">
+      <% doughnuts.forEach(doughnut => { %>
+        <div style="display: flex; flex-direction: column; align-items: center; max-width: 200px; width: 100%;">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 8px; padding: 16px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: white; transition: box-shadow 0.2s;">
+            <img src="/images/Doughnuts_<%= doughnut.id %>.png" alt="<%= doughnut.name %>" style="border-radius: 50%; margin-bottom: 16px;" width="160" height="220">
+          </div>
+          <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 8px;">
+            <span style="font-size: 0.9em; color: #2d6a4f; font-weight: bold;"><%= doughnut.name %></span>
+            <span style="font-size: 0.9em; color: #737373;">$<%= doughnut.price.toFixed(2) %></span>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>
+</html>
